@@ -1,6 +1,6 @@
 # elevator similator
 def hello():
-    print ("Welcome to a Python training project, an elevator simulator. Please input the data as requested in the following prompts with raw integers. No letters, spaces, letters, just raw intergers.\n")
+    print ("\nWelcome to a Python training project, an elevator simulator. Please input the data as requested in the following prompts with raw integers. No letters, spaces, letters, just raw intergers.\n")
 # query base floor
 def fbase_floor():
     while True:
@@ -20,7 +20,7 @@ def ftotal_floors():
             break
         except:
             print("That is not a number. Try again.")
-        return int(total_floors)
+    return int(total_floors)
 
 # query current floor
 def fcurrent_floor():
@@ -32,11 +32,14 @@ def fcurrent_floor():
             print("That is not a number. Try again.")
     return current_floor
 
-# query target floor
+# query target floor and checks if it is not above the roof!
 def ftarget_floor():
     while True:
         try:
             target_floor = int(input("Which floor would you like to go to?\n>"))
+            while target_floor > total_floors:
+                print("That is impossible, it is above the roof!")
+                target_floor = int(input("Which floor would you like to go to?\n>"))
             break
         except:
             print("That is not a number. Try again")
@@ -52,7 +55,7 @@ def fdifference(current_floor, target_floor):
     difference = abs(difference)
     return difference
 
-#while target_floor <= total_floors: | TO DO
+ # print results if all data is good, with all possible outcomes
 def print_result():
     if current_floor < target_floor:
         print("You will go up %s floors") % (difference)
@@ -66,11 +69,12 @@ def print_result():
     else:
         print("The elevator will kill you")
 
+
  # Runs the functions one by one, operating the simulation. Starting with the greetings and ending with the simulation results
 hello()
 total_floors = ftotal_floors()
 current_floor = fcurrent_floor()
 target_floor = ftarget_floor()
 difference = fdifference(current_floor, target_floor)
-print ("difference: %s, current_floor: %s, target_floor: %s") % (difference, current_floor, target_floor)
+#print ("difference: %s, current_floor: %s, target_floor: %s") % (difference, current_floor, target_floor)
 print_result()
