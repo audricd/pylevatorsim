@@ -1,6 +1,33 @@
-# elevator similator
+import sys
+
+ # elevator similator
+
+ # python version check. this is programmed and ran in python 2.7. It shouldnt (and not meant) work for python 3.
+ # because this is a python 2.7 learning project so.. Eventually if I make a 2.7 to 3 transition project
+ # with the future modules, it will be added to this. Eventually.
+
+def pyvercheck():
+    version = sys.version_info[:2]
+    if version == (2, 7):
+        print ("You are using the ideal Python version {0} for this program.").format(version)
+    elif version < (2, 7):
+        print ("You are using version of Python {0} which is below 2.7, the intented version. The program will now exit.").format(version)
+        sys.exit()
+    elif version > (2, 7):
+        print ("You are using version of Python {0} which is above 2.7, the intented version. The program will now exit.").format(version)
+        sys.exit()
+    else:
+        sys.exit("Unrecognized Python version {0}").format(version)
+
+ # hello function. basic information about the program itself and myself
 def hello():
-    print ("\nWelcome to a Python training project, an elevator simulator. Please input the data as requested in the following prompts with raw integers. No letters, spaces, letters, just raw intergers.\n")
+    version = ("0.3")
+    github = ("https://github.com/audricd/pylevatorsim")
+    print ('=') * 100
+    print ("Welcome to a Python training project, an elevator simulator. Please input the data as requested in \nthe following prompts with raw integers. No letters, spaces, symbols, just raw intergers.")
+    print ("-") * 100
+    print ("This is version %s of the training program. All info can be found at \n%s") % (version, github)
+    print ('=') * 100
 # query base floor
 def fbase_floor():
     while True:
@@ -68,9 +95,9 @@ def print_result():
 
     else:
         print("The elevator will kill you")
-
-
  # Runs the functions one by one, operating the simulation. Starting with the greetings and ending with the simulation results
+
+pyvercheck()
 hello()
 total_floors = ftotal_floors()
 current_floor = fcurrent_floor()
