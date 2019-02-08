@@ -3,6 +3,10 @@ python training program, elevator simulator, not meant for any use besides keepi
 
 CHANGELOG
 
+8/2/2019:
+v0.3
+Made hello() prettier and added pyversioncheck(). If not running version 2,7, the program will itentionally not run
+
 7/2/2019:
 v0.2: added target_floor > total_floors as an imposible loop
 
