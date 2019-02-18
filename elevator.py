@@ -1,4 +1,6 @@
 import sys
+import os
+import platform
 
  # elevator similator
 
@@ -7,27 +9,31 @@ import sys
  # with the future modules, it will be added to this. Eventually.
 
 def pyvercheck():
+    detectedos = "%s %s" % (platform.system(), platform.release())
     version = sys.version_info[:2]
-    if version == (2, 7):
-        print ("You are using the ideal Python version {0} for this program.").format(version)
-    elif version < (2, 7):
-        print ("You are using version of Python {0} which is below 2.7, the intented version. The program will now exit.").format(version)
+    strversionM = str(version[0])
+    strversionm = str(version[1])
+    strversion = ("%s.%s" % (strversionM, strversionm))
+    if version == (3, 5) or (3, 6):
+        print ("You are using the ideal Python %s (running on %s), for this program." % (strversion, detectedos))
+    elif version < (3, 5):
+        print ("You are using version of Python %s which is below 3.5 (running on %s), the intented version. The program will now exit." % (strversion, detectedos))
         sys.exit()
-    elif version > (2, 7):
-        print ("You are using version of Python {0} which is above 2.7, the intented version. The program will now exit.").format(version)
+    elif version > (3, 6):
+        print ("You are using version of Python %s which is above 3.6 (running on %s), the intented version. The program will now exit." % (strversion, detectedos))
         sys.exit()
     else:
-        sys.exit("Unrecognized Python version {0}").format(version)
+        sys.exit("Unrecognized Python version (%s) on %s" % (strversion, detectedos))
 
  # hello function. basic information about the program itself and myself
 def hello():
-    version = ("0.3")
+    version = ("0.4")
     github = ("https://github.com/audricd/pylevatorsim")
-    print ('=') * 100
+    print ("=" * 100)
     print ("Welcome to a Python training project, an elevator simulator. Please input the data as requested in \nthe following prompts with raw integers. No letters, spaces, symbols, just raw intergers.")
-    print ("-") * 100
-    print ("This is version %s of the training program. All info can be found at \n%s") % (version, github)
-    print ('=') * 100
+    print ("=" * 100)
+    print ("This is version %s of the training program. All info can be found at \n%s" % (version, github))
+    print ("=" * 100)
 # query base floor
 def fbase_floor():
     while True:
@@ -85,10 +91,10 @@ def fdifference(current_floor, target_floor):
  # print results if all data is good, with all possible outcomes
 def print_result():
     if current_floor < target_floor:
-        print("You will go up %s floors") % (difference)
+        print("You will go up %s floors" % (difference))
 
     elif current_floor > target_floor:
-        print("You will go down %s floors") % (difference)
+        print("You will go down %s floors" % (difference))
 
     elif current_floor == target_floor:
         print("No need to take the elevator buddy")
