@@ -4,9 +4,7 @@ import platform
 
  # elevator similator
 
- # python version check. this is programmed and ran in python 2.7. It shouldnt (and not meant) work for python 3.
- # because this is a python 2.7 learning project so.. Eventually if I make a 2.7 to 3 transition project
- # with the future modules, it will be added to this. Eventually.
+ # meant to be running on python 3.5 or 3.6 (both should work)
 
 def pyvercheck():
     detectedos = "%s %s" % (platform.system(), platform.release())
