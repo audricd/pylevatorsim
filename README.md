@@ -3,6 +3,10 @@ python training program, elevator simulator, not meant for any use besides keepi
 
 CHANGELOG
 
+18/2/2019:
+v0.4
+updated the program to python 3 + os detection
+
 8/2/2019:
 v0.3
 Made hello() prettier and added pyversioncheck(). If not running version 2,7, the program will itentionally not run
